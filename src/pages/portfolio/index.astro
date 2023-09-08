@@ -1,0 +1,41 @@
+---
+import SectionTitle from '../../components/SectionTitle.astro';
+import Layout from '../../layouts/Layout.astro'
+import Subheader from '../../components/Subheader.astro';
+
+const projects = await Astro.glob('./project/*md')
+---
+
+<Layout title="My work" hideOverflow> 
+    <div class="w-full mt-24 flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex justify-between flex-col ">
+            <SectionTitle>Portfolio</SectionTitle>
+            <Subheader>What i've been doing</Subheader>
+            <div class="grid grid-cols-4 gap-4 mt-[-128px] ml-32 overflow-hidden">
+                <div class="bg-transparent w-[200px] h-[200px] rounded-2xl text-white p-8"></div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white shadow-2xl overflow-hidden hover:h-[250px] transition-all duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[0].frontmatter.id}`} transition:animate="slide">
+                    <a href={`/portfolio/project/${projects[0].frontmatter.id}`}>
+                        <img class="w-[226px] h-[288px]" src={projects[0].frontmatter.mini} alt={projects[0].frontmatter.descricao}/>
+                    </a>
+                </div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white shadow-2xl overflow-hidden hover:h-[250px] transition-all duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[1].frontmatter.id}`} transition:animate="slide">
+                    <a href={`/portfolio/project/${projects[1].frontmatter.id}`}>
+                        <img class="w-[200px] h-[300px]" src={projects[1].frontmatter.mini} alt={projects[1].frontmatter.descricao}/>
+                    </a>
+                </div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white shadow-2xl overflow-hidden hover:h-[250px] transition-all duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[2].frontmatter.id}`} transition:animate="slide">
+                    <a href={`/portfolio/project/${projects[2].frontmatter.id}`}>
+                        <img class="w-[300px] h-[250px]" src={projects[2].frontmatter.img} alt={projects[2].frontmatter.descricao}/>
+                    </a>
+                </div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white p-8 shadow-2xl"></div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white p-8 shadow-2xl"></div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white p-8 shadow-2xl"></div>
+                <div class="bg-black w-[200px] h-[200px] rounded-2xl text-white p-8 shadow-2xl"></div>
+            </div>
+            <div class="mt-8 overflow-hidden">
+                <Subheader>Shall we expand this list together?</Subheader>
+            </div>
+        </div>
+    </div>
+</Layout>

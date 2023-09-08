@@ -1,0 +1,32 @@
+--- 
+import Navbar from '../components/Navbar.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+	hideOverflow?: boolean;
+}
+
+const { title, hideOverflow } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body class={`text-slate-900 min-w-min ${hideOverflow ? "overflow-hidden" : null}`}>
+		<Navbar />
+		<slot />
+	</body>
+</html>
+	

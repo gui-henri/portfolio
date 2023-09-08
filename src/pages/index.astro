@@ -1,0 +1,157 @@
+---
+import Button from '../components/Button.astro';
+import Link from '../components/Link.astro';
+import Paragraph from '../components/Paragraph.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import Subheader from '../components/Subheader.astro';
+import Layout from '../layouts/Layout.astro';
+import instagram from '../assets/instagram.svg';
+import twitter from '../assets/twitter.svg';
+import github from '../assets/github.svg';
+import linkedin from '../assets/linkedin.svg';
+import phone from '../assets/phone-call.svg';
+import email from '../assets/at-sign.svg';
+import { Image } from 'astro:assets';
+
+
+const projects = await Astro.glob('./portfolio/project/*.md');
+const posts = await Astro.glob('./blog/posts/*.md');
+
+---
+
+<Layout title="Hi! I'm Gui!">
+	<div class="w-full h-max-[720px] flex flex-row justify-center items-center mt-20">
+		<div>
+			<div class="mr-14">
+				<Subheader>Fullstack Developer</Subheader>
+				<SectionTitle>Hi, i'm Gui. What shall we build today?</SectionTitle>
+			</div>
+			<div class="flex flex-row mt-8">
+				<Button href='/contact'>Say hello!</Button>
+				<Link showIcon href='/portfolio'>See my work</Link>
+			</div>
+		</div>
+		<div class="bg-black w-[435px] h-[400px] rounded-2xl text-white p-8 shadow-2xl">
+			<code>
+				<span class="text-rose-600">const</span> name = <span class="text-lime-600">'Guilherme';</span> <br/>
+				<span class="text-rose-600">const</span> area = <span class="text-lime-600">'Fullstack';</span> <br/>
+				<span class="text-rose-600">const</span> email = <span class="text-lime-600">'guihenrique.dev@gmail.com'</span>;
+				<br />
+				<br />
+				<span class="text-rose-600">const</span> dev = {'{'} <br />
+				&nbsp;&nbsp;&nbsp;&nbsp;name, <br />
+				&nbsp;&nbsp;&nbsp;&nbsp;area, <br />
+				&nbsp;&nbsp;&nbsp;&nbsp;email <br />
+				{'}'}; <br />
+				<br />
+				res = <span class="text-rose-600">await</span><span class="text-amber-600"> callDev</span>(dev); <br />
+				<span class="text-rose-600">if</span> (res.status === 200) {'{'} <br />
+				&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="text-amber-600">log</span>(<span class="text-lime-600">'Nice to meet you!'</span>); <br />
+				{'}'} <br />
+			</code>
+		</div>
+	</div>
+	<div class="w-full h-[720px] flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex justify-between items-center">
+			<div>
+				<div class="flex flex-col justify-evenly h-[365px]">
+					<div>
+						<SectionTitle>This is me...</SectionTitle>
+						<Paragraph className='w-96 mt-4'>
+							My name is Guilherme Henrique, but you can call me Gui! I'm a Fullstack Software Engineer and i have experienced a wide range of technologies, such as React, Express, Python and Flutter. 
+						</Paragraph>
+					</div>
+					<div class="bg-black w-[488px] h-[72px] rounded-2xl text-white p-6 shadow-2xl"> &gt; <span class="text-rose-600">const</span> background = proccess.env.DEV_BACKGROUND</div>
+				</div>
+			</div>
+			<div class="flex flex-col justify-between items-center h-[412px] mt-48">
+				<div class="bg-black w-[156px] h-[156px] rounded-full shadow-2xl"></div>
+				<div>
+					<SectionTitle>...and this is also!</SectionTitle>
+					<Paragraph className='w-96 mt-4'>
+						I'm currently a student at UFRPE, Brazil. I'm in search of new stuff to learn and better ways to develop my skills. My goal is to be vanguard on innovation and colaboration.
+					</Paragraph>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="w-full h-[720px] flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex justify-between flex-col">
+			<SectionTitle>What i've been doing</SectionTitle>
+			<div class="flex mt-20">
+				<div class="flex-initial">
+					<Subheader>My Articles</Subheader>
+					<div class="mt-8 max-w-xs">
+						{
+							posts.slice(0, 3).map((post) => (
+								<div class="flex mb-4">
+									&gt; <Link href={`/blog/posts/${post.frontmatter.id}`}><b>{post.frontmatter.titulo}</b></Link>
+								</div>
+							))
+						}
+					</div>
+					<div class="mt-12">
+						<Link href='/blog'><b> &gt; You can find more here &lt; </b> </Link>
+					</div>
+				</div>
+				<div class="w-1 h-80 bg-black flex-initial ml-2 mr-8 rounded-md shadow-2xl"></div>
+				<div class="flex-auto">
+					<Subheader>My Portfolio</Subheader>
+					<div class="flex flex-col items-end">
+						<div class="w-full flex justify-evenly mt-8">
+							<div class={`w-56 h-64 rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer`} transition:name={`portfolio/project/${projects[0].frontmatter.id}`} transition:animate="slide">
+								<a href={`portfolio/project/${projects[0].frontmatter.id}`}>
+									<Image src={projects[0].frontmatter.mini} alt={projects[0].frontmatter.descricao} width={226} height={288}/>
+								</a>
+							</div>
+							<div class="w-56 h-64 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[1].frontmatter.id}`} transition:animate="slide">
+								<a href={`portfolio/project/${projects[1].frontmatter.id}`}>
+									<Image src={projects[1].frontmatter.mini} alt={projects[1].frontmatter.descricao} width={226} height={288}/>
+								</a>
+							</div>
+							<div class="flex flex-col">
+								<div class="w-32 h-40 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[150px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[2].frontmatter.id}`} transition:animate="slide">
+									<a href={`portfolio/project/${projects[2].frontmatter.id}`}>
+										<Image src={projects[2].frontmatter.mini} alt={projects[2].frontmatter.descricao} width={226} height={288} />
+									</a>
+								</div>
+								<div class="ml-[-8px] mt-8">
+									<Link showIcon href='/portfolio'><b>See more</b></Link>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="w-full h-[500px] flex flex-row justify-center mt-28">
+		<div class="w-full max-w-[1000px] flex items-center flex-col ">
+			<div class="h-full flex flex-col items-center">
+				<SectionTitle transition:name='where-to-find' transition:animate="slide">Here's where to find me</SectionTitle>
+				<Paragraph className='p-2'>I'm aways open to talk</Paragraph>
+				<div class="flex w-full items-center justify-evenly mt-16">
+					<a target="_blank" href="https://github.com/gui-henri">
+						<Image src={github} alt="github icon" />
+					</a>
+					<a target="_blank" href="https://www.linkedin.com/in/gui-henri/">
+						<Image src={linkedin} alt="linkedin icon" />
+					</a>
+					<a target="_blank" href="https://www.instagram.com/guilhermehenrique5186/">
+						<Image src={instagram} alt="instagram icon" />
+					</a>
+					<a target="_blank" href="https://twitter.com/Astrobio_">
+						<Image src={twitter} alt="twitter icon" />					
+					</a>
+					<a target="_blank" href="https://mail.google.com/mail/?view=cm&source=mailto&to=guihenrique.dev@gmail.com">
+						<Image src={email} alt="email icon" />					
+					</a>
+				</div>
+				<div class="mt-24">
+					<Button href='/contact'>Not sure calling? Let me help...</Button>
+				</div>
+			</div>
+			<Paragraph>Made with &lt;3 and Astro</Paragraph>
+		</div>
+	</div>
+</Layout>

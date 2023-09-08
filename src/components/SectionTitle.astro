@@ -1,0 +1,15 @@
+---
+interface Props {
+    isPageTitle?: boolean;
+}
+
+const { isPageTitle } = Astro.props;
+
+---
+
+{
+    isPageTitle ?
+        <h1 class="font-extrabold text-5xl max-w-[512px] tracking-tighter"><slot /></h1>
+    :
+        <h2 class="font-extrabold text-5xl max-w-[512px] tracking-tighter"><slot /></h2> 
+}

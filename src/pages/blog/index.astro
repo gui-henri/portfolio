@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import SectionTitle from '../../components/SectionTitle.astro'
+import Subheader from '../../components/Subheader.astro'
+import Link from '../../components/Link.astro'
+import Paragraph from '../../components/Paragraph.astro'
+
+const allPosts = await Astro.glob('./posts/*.md')
+
+---
+<Layout title='My blog'>
+    <div class="w-full mt-16 flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex justify-between flex-col">
+            <SectionTitle>My Articles</SectionTitle>
+            <Subheader>See my thoughs</Subheader>
+            {
+                allPosts.map((post) => (
+                    <div class="mt-4 max-w-md">
+                        <Link href={`/blog/posts/${post.frontmatter.id}`}>{`> ${post.frontmatter.titulo}`}</Link>
+                        <Paragraph className='pl-7'>{post.frontmatter.descricao}</Paragraph> 
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</Layout>

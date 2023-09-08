@@ -1,0 +1,61 @@
+---
+import Paragraph from '../../components/Paragraph.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import Layout from '../../layouts/Layout.astro'
+import instagram from '../../assets/instagram.svg';
+import twitter from '../../assets/twitter.svg';
+import github from '../../assets/github.svg';
+import linkedin from '../../assets/linkedin.svg';
+import phone from '../../assets/phone-call.svg';
+import email from '../../assets/at-sign.svg';
+import { Image } from 'astro:assets';
+import Subheader from '../../components/Subheader.astro';
+---
+
+<Layout title="Let's talk!"> 
+    <div class="w-full mt-16 flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex justify-between flex-col">
+            <SectionTitle>Let's have some talk!</SectionTitle>
+            <div class="flex">
+                <div>
+                    <Paragraph className="w-80 mt-8">
+                        If you want to build something with me, i'm open to colaborations. I'm also open to any job opportunities, so if you think i'm a good fit for your company, feel free to send a message.
+                    </Paragraph>
+                    <Paragraph className="w-80 mt-8">
+                        If you're a fellow developer, don't hesitate to contact me as well! I'm open to any conversations. Drop a message and let's discuss our favorites Javascript UI frameworks together!
+                    </Paragraph>
+                </div>
+                <div class="flex text-center items-center underline ml-80">
+                    <Subheader transition:name='where-to-find' transition:animate="slide">Here's where to <br/>find me -></Subheader>
+                    <div class="flex flex-col items-center ml-8 mt-[-48px] justify-center">
+                        <div class="p-2">
+                            <a href="https://github.com/gui-henri">
+                                <Image src={github} alt="github icon" />
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.linkedin.com/in/gui-henri/">
+                                <Image src={linkedin} alt="linkedin icon" />
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.instagram.com/guilhermehenrique5186/">
+                                <Image src={instagram} alt="instagram icon" />
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://twitter.com/Astrobio_">
+                                <Image src={twitter} alt="twitter icon" />
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://mail.google.com/mail/?view=cm&source=mailto&to=guihenrique.dev@gmail.com">
+                                <Image src={email} alt="email icon" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

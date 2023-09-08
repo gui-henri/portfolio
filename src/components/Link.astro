@@ -1,0 +1,21 @@
+---
+
+import { Image } from 'astro:assets';
+import icon from '../assets/arrow-up-right.svg'
+
+interface Props {
+    href: string
+    showIcon?: boolean
+}
+
+const { href, showIcon } = Astro.props
+---
+
+<a href={href} class="underline flex h-10 pr-4 pl-4 pt-2 pb-2 items-center">
+    {
+        showIcon ? 
+            <Image src={icon} alt="external link icon" class="mr-1" /> 
+        : null
+    }
+    <slot />
+</a>
