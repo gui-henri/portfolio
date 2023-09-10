@@ -11,7 +11,7 @@ const { title, hideOverflow } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate="slide">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -24,8 +24,10 @@ const { title, hideOverflow } = Astro.props;
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body class={`text-slate-900 min-w-min ${hideOverflow ? "overflow-hidden" : null}`}>
-		<Navbar />
+	<body class={`text-slate-900 min-w-[375px] ml-3 mr-3 ${hideOverflow ? "overflow-hidden" : null}`}>
+		<div class="flex justify-end w-full">
+			<Navbar />
+		</div>
 		<slot />
 	</body>
 </html>

@@ -20,7 +20,7 @@ const posts = await Astro.glob('./blog/posts/*.md');
 ---
 
 <Layout title="Hi! I'm Gui!">
-	<div class="w-full h-max-[720px] flex flex-row justify-center items-center mt-20">
+	<div class="w-full flex flex-col lg:flex-row justify-center items-center mt-8">
 		<div>
 			<div class="mr-14">
 				<Subheader>Fullstack Developer</Subheader>
@@ -31,7 +31,7 @@ const posts = await Astro.glob('./blog/posts/*.md');
 				<Link showIcon href='/portfolio'>See my work</Link>
 			</div>
 		</div>
-		<div class="bg-black w-[435px] h-[400px] rounded-2xl text-white p-8 shadow-2xl">
+		<div class="bg-black w-5/6 mt-16 max-w-[435px] lg:w-[435px] min-w-[300px] rounded-2xl text-white p-8 shadow-2xl">
 			<code>
 				<span class="text-rose-600">const</span> name = <span class="text-lime-600">'Guilherme';</span> <br/>
 				<span class="text-rose-600">const</span> area = <span class="text-lime-600">'Fullstack';</span> <br/>
@@ -51,21 +51,21 @@ const posts = await Astro.glob('./blog/posts/*.md');
 			</code>
 		</div>
 	</div>
-	<div class="w-full h-[720px] flex flex-row items-center justify-center">
-		<div class="w-full max-w-[1000px] flex justify-between items-center">
+	<div class="w-full mt-16 lg:mt-0 lg:h-[720px] flex flex-row items-center justify-center">
+		<div class="w-full max-w-[1000px] flex flex-col lg:flex-row lg:justify-between items-center">
 			<div>
-				<div class="flex flex-col justify-evenly h-[365px]">
+				<div class="flex flex-col items-center justify-evenly h-[365px]">
 					<div>
 						<SectionTitle>This is me...</SectionTitle>
 						<Paragraph className='w-96 mt-4'>
 							My name is Guilherme Henrique, but you can call me Gui! I'm a Fullstack Software Engineer and i have experienced a wide range of technologies, such as React, Express, Python and Flutter. 
 						</Paragraph>
 					</div>
-					<div class="bg-black w-[488px] h-[72px] rounded-2xl text-white p-6 shadow-2xl"> &gt; <span class="text-rose-600">const</span> background = proccess.env.DEV_BACKGROUND</div>
+					<div class="bg-black w-11/12 text-[13px] lg:w-[350px] h-[72px] rounded-2xl text-white p-6 shadow-2xl text-center"> &gt; <span class="text-rose-600">const</span> bg = proccess.env.DEV_BACKGROUND</div>
 				</div>
 			</div>
-			<div class="flex flex-col justify-between items-center h-[412px] mt-48">
-				<div class="bg-black w-[156px] h-[156px] rounded-full shadow-2xl"></div>
+			<div class="flex flex-col justify-between items-center h-[412px] lg:mt-48">
+				<div class="bg-black mt-16 lg:mt-0 w-[156px] h-[156px] rounded-full shadow-2xl"></div>
 				<div>
 					<SectionTitle>...and this is also!</SectionTitle>
 					<Paragraph className='w-96 mt-4'>
@@ -75,11 +75,11 @@ const posts = await Astro.glob('./blog/posts/*.md');
 			</div>
 		</div>
 	</div>
-	<div class="w-full h-[720px] flex flex-row items-center justify-center">
+	<div class="w-full mt-32 lg:mt-0 lg:h-[720px] flex flex-row items-center justify-center">
 		<div class="w-full max-w-[1000px] flex justify-between flex-col">
 			<SectionTitle>What i've been doing</SectionTitle>
-			<div class="flex mt-20">
-				<div class="flex-initial">
+			<div class="flex mt-8 lg:mt-20 flex-col lg:flex-row">
+				<div class="flex-initial ">
 					<Subheader>My Articles</Subheader>
 					<div class="mt-8 max-w-xs">
 						{
@@ -94,23 +94,23 @@ const posts = await Astro.glob('./blog/posts/*.md');
 						<Link href='/blog'><b> &gt; You can find more here &lt; </b> </Link>
 					</div>
 				</div>
-				<div class="w-1 h-80 bg-black flex-initial ml-2 mr-8 rounded-md shadow-2xl"></div>
-				<div class="flex-auto">
+				<div class="w-80 h-1 lg:w-1 lg:h-80 bg-black flex-initial mt-8 lg:mt-0 ml-2 mr-8 rounded-md shadow-2xl"></div>
+				<div class="flex-auto mt-8 lg:mt-0">
 					<Subheader>My Portfolio</Subheader>
 					<div class="flex flex-col items-end">
 						<div class="w-full flex justify-evenly mt-8">
-							<div class={`w-56 h-64 rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer`} transition:name={`portfolio/project/${projects[0].frontmatter.id}`} transition:animate="slide">
+							<div class={`w-56 h-32 m-2 md:m-0 sm:h-64 rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer`} transition:name={`portfolio/project/${projects[0].frontmatter.id}`} transition:animate="slide">
 								<a href={`portfolio/project/${projects[0].frontmatter.id}`}>
 									<Image src={projects[0].frontmatter.mini} alt={projects[0].frontmatter.descricao} width={226} height={288}/>
 								</a>
 							</div>
-							<div class="w-56 h-64 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[1].frontmatter.id}`} transition:animate="slide">
+							<div class="w-56 h-32 m-2 md:m-0 sm:h-64 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[240px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[1].frontmatter.id}`} transition:animate="slide">
 								<a href={`portfolio/project/${projects[1].frontmatter.id}`}>
 									<Image src={projects[1].frontmatter.mini} alt={projects[1].frontmatter.descricao} width={226} height={288}/>
 								</a>
 							</div>
 							<div class="flex flex-col">
-								<div class="w-32 h-40 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[150px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[2].frontmatter.id}`} transition:animate="slide">
+								<div class="w-28 h-32 md:w-32 sm:h-40 m-2 md:m-0 bg-black rounded-2xl shadow-2xl overflow-hidden transition-all hover:h-[150px] duration-700 cursor-pointer" transition:name={`portfolio/project/${projects[2].frontmatter.id}`} transition:animate="slide">
 									<a href={`portfolio/project/${projects[2].frontmatter.id}`}>
 										<Image src={projects[2].frontmatter.mini} alt={projects[2].frontmatter.descricao} width={226} height={288} />
 									</a>
@@ -127,7 +127,7 @@ const posts = await Astro.glob('./blog/posts/*.md');
 	</div>
 	<div class="w-full h-[500px] flex flex-row justify-center mt-28">
 		<div class="w-full max-w-[1000px] flex items-center flex-col ">
-			<div class="h-full flex flex-col items-center">
+			<div class="h-full flex flex-col items-center text-center">
 				<SectionTitle transition:name='where-to-find' transition:animate="slide">Here's where to find me</SectionTitle>
 				<Paragraph className='p-2'>I'm aways open to talk</Paragraph>
 				<div class="flex w-full items-center justify-evenly mt-16">

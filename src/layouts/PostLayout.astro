@@ -14,7 +14,9 @@ const { frontmatter } = Astro.props
 		<div class="w-full max-w-[1000px] flex justify-between flex-row">
             <div>
                 <SectionTitle>{frontmatter.titulo}</SectionTitle>
-                <Subheader>{frontmatter.descricao}</Subheader>
+                <div class="mt-4">
+                    <Subheader>{frontmatter.descricao}</Subheader>
+                </div>
                 <div class="text-base font-semibold mt-8 max-w-lg">
                     <slot />
                 </div>

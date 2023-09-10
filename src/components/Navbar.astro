@@ -1,5 +1,9 @@
+---
+import MobileNavbar  from './svelte/MobileNavbar.svelte';
+---
+
 <div transition:name="navbar" transition:persist transition:animate="none" class="w-full flex justify-center">
-    <nav class="w-full flex justify-between max-w-[1130px] mt-10">
+    <nav class="hidden w-full lg:flex justify-end lg:justify-between max-w-[1130px] mt-10">
         <div class="font-bold text-xl">
             &lt;/> Gui
         </div>
@@ -11,3 +15,5 @@
         </div>
     </nav>
 </div>
+
+<MobileNavbar client:visible />
