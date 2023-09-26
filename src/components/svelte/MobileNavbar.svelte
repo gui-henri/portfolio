@@ -9,7 +9,7 @@
     };
 </script>
 
-<div class="relative flex flex-col justify-end lg:hidden">
+<div class="relative flex flex-col justify-end lg:hidden z-10">
     <Hamburguer width={80} {open} {onClick} />
 
     {#if open}
