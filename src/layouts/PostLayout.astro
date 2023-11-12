@@ -11,13 +11,13 @@ const { frontmatter } = Astro.props
 
 <Layout title={frontmatter.titulo}>
     <div class="w-full mt-16 flex flex-row items-center justify-center">
-		<div class="w-full max-w-[1000px] flex justify-between flex-row">
+		<div class="w-full max-w-[375px] lg:max-w-[1000px] flex justify-between flex-row">
             <div>
                 <SectionTitle>{frontmatter.titulo}</SectionTitle>
                 <div class="mt-4">
                     <Subheader>{frontmatter.descricao}</Subheader>
                 </div>
-                <div class="text-base font-semibold mt-8 max-w-lg">
+                <div class="text-base font-semibold mt-8 max-w-[375px] md:max-w-[512px] lg:max-w-[720px]">
                     <slot />
                 </div>
                 <div class="flex gap-4 w-full mt-8 mb-8">

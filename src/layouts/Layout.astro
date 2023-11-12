@@ -25,7 +25,7 @@ const { title, hideOverflow } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body class={`text-slate-900 min-w-[375px] ml-3 mr-3 ${hideOverflow ? "lg:overflow-hidden" : null}`}>
-		<div class="flex justify-end w-full">
+		<div class="flex justify-end w-full min-w-[480px]">
 			<Navbar />
 		</div>
 		<slot />
