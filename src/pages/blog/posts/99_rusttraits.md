@@ -1,6 +1,6 @@
 ---
 titulo: "Rust traits blew my mind"
-id: 'rusttraits'
+id: '99_rusttraits'
 descricao: "A quick talk about traits in Rust and how they compare to interfaces in Java."
 layout: ../../../layouts/PostLayout.astro
 ---
